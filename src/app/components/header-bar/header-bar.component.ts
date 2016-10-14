@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, OnChanges, SimpleChange } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }          from '@angular/common';
-import { ROUTES } from '../utils/routes';
+import { ROUTES } from '../../utils/routes';
 
 @Component({
     selector: 'header-bar',
