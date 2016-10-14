@@ -9,7 +9,10 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { HamburgerIconComponent } from './hamburger-icon/hamburger-icon.component';
 import { LoadingBlockComponent } from './loading-block/loading-block.component';
+import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { routing } from './app.routing';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { routing } from './app.routing';
     UserPageComponent,
     HeaderBarComponent,
     HamburgerIconComponent,
-    LoadingBlockComponent
+    LoadingBlockComponent,
+    FooterBarComponent
   ],
   imports: [
     BrowserModule,
