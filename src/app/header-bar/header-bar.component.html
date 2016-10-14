@@ -1,0 +1,22 @@
+<div>
+    <div
+            #header
+            class="header"
+    >
+        <hamburger-icon
+                id="hamberger-menu"
+                [open]=""
+                [back]="shouldShowBackBtn()"
+                (click)="hamburgerIconClick"
+        ></hamburger-icon>
+        <a >
+            <div id='brand-logo'></div>
+        </a>
+        <div id='notification-icon'></div>
+    </div>
+    <loading-block
+            *ngIf="showLoading"
+            [done]="doneLoading"
+            [failed]="loadFailed"
+    ></loading-block>
+</div>
