@@ -25,6 +25,7 @@ export class LoadingBlockComponent implements OnInit, OnDestroy, OnChanges{
             three: false,
             failed: false
         };
+        
     }
 
     ngOnChanges(changes: SimpleChanges) {

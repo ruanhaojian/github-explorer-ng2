@@ -1,0 +1,11 @@
+$profileImageSize: 100px;
+.image-fade {
+  opacity: 0.01;
+  transition: opacity 0.5s;
+
+  background-position: center center;
+  background-size: cover;
+  height: $profileImageSize;
+  width: $profileImageSize;
+  border-radius: 6px;
+}

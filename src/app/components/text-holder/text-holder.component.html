@@ -1,0 +1,7 @@
+<span
+        [ngClass]="classObj()"
+        [ngStyle]="styleObj()"
+>
+    <div class="text-holder" *ngIf="!content" ></div>
+    <template *ngIf="!!content">{{content}}</template>
+</span>

@@ -10,7 +10,13 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
 import { HamburgerIconComponent } from './components/hamburger-icon/hamburger-icon.component';
 import { LoadingBlockComponent } from './components/loading-block/loading-block.component';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { TextHolderComponent } from './components/text-holder/text-holder.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
+
 import { routing } from './app.routing';
+
+import { ActionService } from './action/action.service'
 
 
 
@@ -22,7 +28,10 @@ import { routing } from './app.routing';
     HeaderBarComponent,
     HamburgerIconComponent,
     LoadingBlockComponent,
-    FooterBarComponent
+    FooterBarComponent,
+    ProfileComponent,
+    TextHolderComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,9 @@ import { routing } from './app.routing';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [
+    ActionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
