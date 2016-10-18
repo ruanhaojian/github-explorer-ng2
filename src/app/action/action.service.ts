@@ -66,6 +66,20 @@ export class ActionService {
 
     }
 
+    getUserProfileRepos(username: string) {
+        return this.http.get(`${this.baseUrl}/search/repositories` +
+                `?q=user:${username}&sort=stars&page=1&per_page=${this.REPO_PER_PAGE}`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(data => {
+                action.next({
+                    name: ACTIONS.USER_PROFILE_REPOS_RECEIVED,
+                    data: data.items,
+                });
+            })
+            .catch(this.handleError);
+    }
+
     getUsers(keyword: string) {
 
         return this.http.get(`${this.baseUrl}/legacy/user/search/` +

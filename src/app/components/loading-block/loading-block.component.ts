@@ -30,10 +30,10 @@ export class LoadingBlockComponent implements OnInit, OnDestroy, OnChanges{
 
     ngOnChanges(changes: SimpleChanges) {
 
-        if (changes['done'].currentValue) {
+        if (changes['done'] && changes['done'].currentValue) {
             this.loadingState.three = true
         }
-        if (changes['failed'].currentValue) {
+        if (changes['failed'] && changes['failed'].currentValue) {
             this.loadingState.failed = true
         }
     }

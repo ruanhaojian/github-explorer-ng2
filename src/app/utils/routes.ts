@@ -1,8 +1,8 @@
 export const ROUTES = {
   HOME: '/',
-  USER_DETAIL: '/user/:username',
-  USER_REPO_LIST: '/user/:username/repos',
-  REPO_DETAIL: '/user/:username/repos/:repoName',
+  USER_DETAIL: 'user/:username',
+  USER_REPO_LIST: 'user/:username/repos',
+  REPO_DETAIL: 'user/:username/repos/:repoName',
 };
 
 export const matchParams = (route, params) => {

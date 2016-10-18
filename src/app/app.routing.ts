@@ -6,7 +6,7 @@ import { UserPageComponent }  from './components/user-page/user-page.component';
 const appRoutes: Routes = [
   {
     path: '',
-    // redirectTo: '/user',
+    // redirectTo: '/user/',
     // pathMatch: 'full'
     component: UserPageComponent
   },
@@ -16,4 +16,4 @@ const appRoutes: Routes = [
   }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: false });
