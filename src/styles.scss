@@ -5,6 +5,19 @@
 @import './assets/fonts/GothamPro-Bold/styles.css';
 @import './assets/fonts/GothamPro-Medium/styles.css';
 
+@import "./app/components/avatar/avatar.component.scss";
+@import "./app/components/footer-bar/footer-bar.component.scss";
+@import "./app/components/hamburger-icon/hamburger-icon.component.scss";
+@import "./app/components/header-bar/header-bar.component.scss";
+@import "./app/components/loading-block/loading-block.component.scss";
+@import "./app/components/main-content/main-content.component.scss";
+@import "./app/components/nav-menu/nav-menu.component.scss";
+@import "./app/components/profile/profile.component.scss";
+@import "./app/components/repo-content/repo-content.component.scss";
+@import "./app/components/repo-item/repo-item.component.scss";
+@import "./app/components/text-holder/text-holder.component.scss";
+@import "./app/components/user-page/user-page.component.scss";
+
 html {
   overflow: hidden;
 }

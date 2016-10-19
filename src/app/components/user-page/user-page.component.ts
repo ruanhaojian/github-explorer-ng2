@@ -1,4 +1,15 @@
-import { Component, OnInit, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    AfterViewInit,
+    OnChanges,
+    SimpleChanges,
+    trigger,
+    state,
+    style,
+    transition,
+    animate
+} from '@angular/core';
 import { ActionService, action } from '../../action/action.service'
 import { ActivatedRoute, Params } from '@angular/router';
 import { ACTIONS } from '../../action/action.types'
@@ -8,7 +19,20 @@ import { Observable } from 'rxjs'
 @Component({
     selector: 'user-page',
     templateUrl: './user-page.component.html',
-    styleUrls: ['./user-page.component.scss']
+    // styleUrls: ['./user-page.component.scss'],
+    animations: [
+        trigger('fadeInOut', [
+            state('in', style({opacity: 1,transform: 'translateY(0)'})),
+            transition('void => *', [
+                style({opacity: 1,transform: 'translateY(50px)'}),
+                animate('200ms 200ms')
+            ]),
+            transition('* => void', [
+                animate('200ms 200ms', style({opacity: 0,transform: 'translateY(-50px)'}))
+            ])
+        ])
+    ]
+
 })
 export class UserPageComponent implements OnInit, AfterViewInit, OnChanges{
     profile: any;

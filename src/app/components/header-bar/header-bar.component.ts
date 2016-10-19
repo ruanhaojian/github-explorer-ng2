@@ -11,7 +11,7 @@ import { ACTIONS } from '../../action/action.types'
 @Component({
     selector: 'header-bar',
     templateUrl: './header-bar.component.html',
-    styleUrls: ['./header-bar.component.scss']
+    // styleUrls: ['./header-bar.component.scss']
 })
 export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit{
     showLoading: boolean;
@@ -44,12 +44,6 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
         console.log('header-bar=ngOnChanges===>');
         console.dir(changes);
         
-        // if (!this.isUserPage(nextProps.route)) {
-        //     this.unmountHeaderChange();
-        // } else {
-        //     this.mountHeaderChange();
-        // }
-        
     }
 
     ngOnInit(): void {
@@ -61,6 +55,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
         let el : HTMLElement = this.elementRef.nativeElement;
         this.header = el.querySelector('.header');
 
+        // subscribe the router change
         this.router.events
             .filter(event => event instanceof NavigationEnd)
             .subscribe((val) => {
@@ -68,7 +63,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
                 console.log('router.events subscribe');
                 console.dir(this.route);
                 // console.dir(val);
-                debugger;
+                
                 if (!this.isUserPage(this.route.firstChild.routeConfig.path)) {
                     this.unmountHeaderChange();
                 } else {
@@ -106,14 +101,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
             .subscribe(() => {
                 this.loadFailed = true;
             });
-
-
-
-
-
-        // if (this.isUserPage('')) {
-        //     this.mountHeaderChange();
-        // }
+        
     }
 
     ngOnDestroy(): void {
@@ -126,6 +114,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
     unmountHeaderChange() {
         this.header.classList.remove('transparent');
         this.obsChangeHeaderColor && this.obsChangeHeaderColor.dispose();
+        this.obsChangeHeaderColor = null;
     }
 
     mountHeaderChange() {

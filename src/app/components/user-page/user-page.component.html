@@ -4,4 +4,21 @@
             [profile]="profile"
     ></profile>
 
+    <div class='repo-list'>
+        <div class='repo-list-header'>POPULAR REPOSITORIES</div>
+        <div>
+            <div *ngFor="let repo of repos"
+                 [@fadeInOut]="'in'">
+                <repo-item
+                        [repo]="repo"
+                ></repo-item>
+            </div>
+        </div>
+    </div>
+    <a
+
+            class='view-all-btn'
+    >
+        VIEW ALL REPOS
+    </a>
 </div>

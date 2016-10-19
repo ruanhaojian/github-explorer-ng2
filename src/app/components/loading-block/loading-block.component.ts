@@ -11,7 +11,7 @@ class LoadingState {
 @Component({
     selector: 'loading-block',
     templateUrl: './loading-block.component.html',
-    styleUrls: ['./loading-block.component.scss'],
+    // styleUrls: ['./loading-block.component.scss'],
     inputs: ['done', 'failed'],
 })
 export class LoadingBlockComponent implements OnInit, OnDestroy, OnChanges{

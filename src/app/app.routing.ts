@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UserPageComponent }  from './components/user-page/user-page.component';
 
+import { ROUTES } from './utils/routes'
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -11,7 +13,7 @@ const appRoutes: Routes = [
     component: UserPageComponent
   },
   {
-    path: 'user/:username',
+    path: ROUTES.USER_DETAIL,
     component: UserPageComponent
   }
 ];

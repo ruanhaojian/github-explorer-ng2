@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'text-holder',
     templateUrl: './text-holder.component.html',
-    styleUrls: ['./text-holder.component.scss'],
+    // styleUrls: ['./text-holder.component.scss'],
     inputs: ['width', 'height', 'center', 'content']
 })
 export class TextHolderComponent {

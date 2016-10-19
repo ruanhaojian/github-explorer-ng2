@@ -3,7 +3,7 @@ import { Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 @Component({
     selector: 'avatar',
     templateUrl: './avatar.component.html',
-    styleUrls: ['./avatar.component.scss'],
+    // styleUrls: ['./avatar.component.scss'],
     inputs: ['src']
 })
 export class AvatarComponent implements OnInit, OnChanges{
