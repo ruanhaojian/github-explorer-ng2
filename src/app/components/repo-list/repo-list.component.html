@@ -1,0 +1,45 @@
+<div id="repo-list-page"
+     class="transition-item animated"
+     *ngStyle="{ 'top': offsetTop }"
+     style="animation-duration: .5s;"
+>
+    <div id="search-wrapper" #searchwrapper>
+        <!--<search-input-->
+                <!--placeholder="Find a repository..."-->
+                <!--:searchtext.sync="searchText"-->
+                <!--buttonText="SEARCH"-->
+                <!--@search="searchBarAction"-->
+                <!--class="animated"-->
+                <!--transition="lineup"-->
+        <!--&gt;</search-input>-->
+    </div>
+    <div id="scroll-wrapper" #scrollwrapper (scroll)="scroll()">
+        <div id="repo-list">
+
+            <div *ngIf="!repos.length && isSearching"
+                 class="empty-data"
+            >
+                :-( Sad... No result found!
+            </div>
+            <template *ngIf="!(!repos.length && isSearching)">
+                <div>
+                    <div>
+                        <div *ngFor="let repo of repos"
+                             [@fadeInOut]="'in'">
+                            <repo-item
+                                    [repo]="repo"
+                            ></repo-item>
+                        </div>
+                    </div>
+                    <div id='load-more'
+                         *ngIf="!complete && repos.length > 0"
+                         (click)="loadMore()"
+                    >
+                        {{isSearching ? 'LOADING...' : 'LOAD MORE'}}
+                    </div>
+
+                </div>
+            </template>
+        </div>
+    </div>
+</div>

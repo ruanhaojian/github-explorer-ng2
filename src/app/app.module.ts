@@ -15,6 +15,7 @@ import { TextHolderComponent } from './components/text-holder/text-holder.compon
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { RepoItemComponent } from './components/repo-item/repo-item.component';
 import { RepoContentComponent } from './components/repo-content/repo-content.component';
+import { RepoListComponent } from './components/repo-list/repo-list.component';
 // pipe
 import { FromNowPipe } from './pipe/from-now.pipe'
 // routing
@@ -38,7 +39,7 @@ import { ActionService } from './action/action.service'
     AvatarComponent,
     RepoItemComponent,
     RepoContentComponent,
-
+    RepoListComponent,
       
     FromNowPipe
   ],
