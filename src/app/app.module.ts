@@ -16,6 +16,7 @@ import { AvatarComponent } from './components/avatar/avatar.component';
 import { RepoItemComponent } from './components/repo-item/repo-item.component';
 import { RepoContentComponent } from './components/repo-content/repo-content.component';
 import { RepoListComponent } from './components/repo-list/repo-list.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 // pipe
 import { FromNowPipe } from './pipe/from-now.pipe'
 // routing
@@ -40,6 +41,7 @@ import { ActionService } from './action/action.service'
     RepoItemComponent,
     RepoContentComponent,
     RepoListComponent,
+    SearchInputComponent,
       
     FromNowPipe
   ],

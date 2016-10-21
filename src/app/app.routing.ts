@@ -19,8 +19,7 @@ const appRoutes: Routes = [
   },
   {
     path: ROUTES.USER_REPO_LIST,
-    component: RepoListComponent,
-    // as: 'USER_REPO_LIST'
+    component: RepoListComponent
   }
 ];
 

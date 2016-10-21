@@ -14,7 +14,7 @@ import { ActionService, action } from '../../action/action.service'
 import { ActivatedRoute, Params } from '@angular/router';
 import { ACTIONS } from '../../action/action.types'
 
-import { Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
 
 @Component({
     selector: 'user-page',
@@ -38,9 +38,9 @@ export class UserPageComponent implements OnInit, AfterViewInit, OnChanges{
     profile: any;
     repos: Array<any>;
 
-    obsReceivedUserProfile: any;
-    obsReceiveUserRepos: any;
-    obsLoadDone: any;
+    obsReceivedUserProfile: Subscription;
+    obsReceiveUserRepos: Subscription;
+    obsLoadDone: Subscription;
 
     constructor(
         private actionService: ActionService,

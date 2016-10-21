@@ -1,0 +1,15 @@
+<div id="search-input">
+    <button
+            [ngClass]="{'icon' : !!!buttontext}"
+            (click)="onSearch.emit($event)"
+    >{{ buttontext }} <i class="fa fa-search" *ngIf="!!!buttontext"></i>
+    </button>
+    <input
+            aria-label="Search"
+            type="search"
+            [placeholder]="placeholder"
+            [ngModel]="searchtext"
+            (ngModelChange)="textChange($event)"
+            (focus)="onFocus.emit($event)"
+    />
+</div>

@@ -37,6 +37,11 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
         this.showLoading = false;
         this.doneLoading = false;
         this.loadFailed = false;
+
+        this.obsTriggerLoadAnimation = null;
+        this.obsTriggerLoadAnimationDone = null;
+        this.obsRequestFailed = null;
+        this.obsChangeHeaderColor = null;
     }
 
     ngOnChanges(changes: SimpleChanges){
@@ -63,7 +68,6 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
                 console.log('router.events subscribe');
                 console.dir(this.route);
                 // console.dir(val);
-                
                 if (!this.isUserPage(this.route.firstChild.routeConfig.path)) {
                     this.unmountHeaderChange();
                 } else {
@@ -105,16 +109,15 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
     }
 
     ngOnDestroy(): void {
-        this.obsTriggerLoadAnimation.dispose();
-        this.obsTriggerLoadAnimationDone.dispose();
-        this.obsRequestFailed.dispose();
+        this.obsTriggerLoadAnimation.unsubscribe();
+        this.obsTriggerLoadAnimationDone.unsubscribe();
+        this.obsRequestFailed.unsubscribe();
         this.unmountHeaderChange();
     }
 
     unmountHeaderChange() {
         this.header.classList.remove('transparent');
-        this.obsChangeHeaderColor && this.obsChangeHeaderColor.dispose();
-        this.obsChangeHeaderColor = null;
+        this.obsChangeHeaderColor && this.obsChangeHeaderColor.unsubscribe();
     }
 
     mountHeaderChange() {

@@ -80,6 +80,33 @@ export class ActionService {
             .catch(this.handleError);
     }
 
+    searchUserRepos(user: string, keyword: string, page: number) {
+        return this.http.get('https://api.github.com/search/repositories' +
+                `?q=${keyword}%20user:${user}&sort=updated&page=${page}&per_page=${this.REPO_PER_PAGE}`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(data => {
+                if (+page > 1) {
+                    action.next({
+                        name: ACTIONS.USER_REPOS_NEXT_PAGE_RECEIVED,
+                        data: { page, repos: data.items },
+                    });
+                } else {
+                    action.next({
+                        name: ACTIONS.USER_REPOS_RECEIVED,
+                        data: data.items,
+                    });
+                }
+                if (data.items.length < this.REPO_PER_PAGE) {
+                    action.next({
+                        name: ACTIONS.USER_REPOS_COMPLETE,
+                    });
+                }
+                
+            })
+            .catch(this.handleError);
+    }
+
     getUsers(keyword: string) {
 
         return this.http.get(`${this.baseUrl}/legacy/user/search/` +

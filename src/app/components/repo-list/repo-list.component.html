@@ -1,17 +1,18 @@
 <div id="repo-list-page"
      class="transition-item animated"
-     *ngStyle="{ 'top': offsetTop }"
+     [ngStyle]="{ 'top': offsetTop }"
      style="animation-duration: .5s;"
 >
-    <div id="search-wrapper" #searchwrapper>
-        <!--<search-input-->
-                <!--placeholder="Find a repository..."-->
-                <!--:searchtext.sync="searchText"-->
-                <!--buttonText="SEARCH"-->
-                <!--@search="searchBarAction"-->
-                <!--class="animated"-->
-                <!--transition="lineup"-->
-        <!--&gt;</search-input>-->
+    <div id="search-wrapper" #searchwrapper >
+        <div [@fadeInOut]="'in'" *ngIf="isShowSearch">
+            <search-input
+                    [placeholder]="'Find a repository...'"
+                    [buttontext]="'SEARCH'"
+                    (onTextChange)="searchTextChange($event)"
+                    (onSearch)="search()"
+            ></search-input>
+        </div>
+
     </div>
     <div id="scroll-wrapper" #scrollwrapper (scroll)="scroll()">
         <div id="repo-list">
@@ -21,7 +22,7 @@
             >
                 :-( Sad... No result found!
             </div>
-            <template *ngIf="!(!repos.length && isSearching)">
+            <template [ngIf]="!(!repos.length && isSearching)">
                 <div>
                     <div>
                         <div *ngFor="let repo of repos"
@@ -41,5 +42,6 @@
                 </div>
             </template>
         </div>
+        <footer-bar  ></footer-bar>
     </div>
 </div>
