@@ -4,10 +4,9 @@
             class="header"
     >
         <hamburger-icon
-
                 [open]=""
-                [back]="shouldShowBackBtn()"
-                (click)="hamburgerIconClick"
+                [back]="isShowBackBtn"
+                (click)="hamburgerIconClick()"
         ></hamburger-icon>
         <a routerLink="/user/ruanhaojian">
             <div id='brand-logo'></div>

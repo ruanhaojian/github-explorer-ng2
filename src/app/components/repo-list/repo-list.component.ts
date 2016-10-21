@@ -115,7 +115,7 @@ export class RepoListComponent implements OnInit, OnChanges, AfterViewInit, OnDe
                 action.next({ name: ACTIONS.TRIGGER_LOAD_ANIMATION_DONE });
             });
 
-        
+
         let el : HTMLElement = this.elementRef.nativeElement;
         this.searchWrapper = el.querySelector('#search-wrapper');
         this.scrollWrapper = el.querySelector('#scroll-wrapper');
@@ -214,10 +214,10 @@ export class RepoListComponent implements OnInit, OnChanges, AfterViewInit, OnDe
 
     ngOnDestroy() : void{
 
-        this.obsReceiveUserRepos.unsubscribe();
-        this.obsReceiveUserReposNextPage.unsubscribe();
-        this.obsUserReposComplete.unsubscribe();
-        this.obsHighlightSearchbox.unsubscribe();
+        this.obsReceiveUserRepos && this.obsReceiveUserRepos.unsubscribe();
+        this.obsReceiveUserReposNextPage && this.obsReceiveUserReposNextPage.unsubscribe();
+        this.obsUserReposComplete && this.obsUserReposComplete.unsubscribe();
+        this.obsHighlightSearchbox && this.obsHighlightSearchbox.unsubscribe();
 
         // Undo the footer hack in RepoList
         // document.querySelector('.footer.original').style.display = 'flex';

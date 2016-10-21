@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
     outputs: [],
 })
 export class HamburgerIconComponent {
-
+    open: boolean;
+    back: boolean;
+    
+    constructor(){
+        
+    }
 }

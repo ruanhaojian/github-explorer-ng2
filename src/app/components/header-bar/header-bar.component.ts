@@ -17,6 +17,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
     showLoading: boolean;
     doneLoading: boolean;
     loadFailed: boolean;
+    isShowBackBtn : boolean;
 
     header : any;
     scrollSection: any;
@@ -64,15 +65,14 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
         this.router.events
             .filter(event => event instanceof NavigationEnd)
             .subscribe((val) => {
-                // see also
-                console.log('router.events subscribe');
-                console.dir(this.route);
-                // console.dir(val);
+                
                 if (!this.isUserPage(this.route.firstChild.routeConfig.path)) {
                     this.unmountHeaderChange();
                 } else {
                     this.mountHeaderChange();
                 }
+
+                this.isShowBackBtn = this.shouldShowBackBtn(this.route.firstChild.routeConfig.path);
             });
 
         this.obsTriggerLoadAnimation = action
@@ -164,6 +164,15 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
             case ROUTES.USER_REPO_LIST: return ROUTES.USER_DETAIL;
             case ROUTES.REPO_DETAIL: return ROUTES.USER_REPO_LIST;
             default: return false;
+        }
+    }
+
+    hamburgerIconClick() {
+        const backRoute = this.isShowBackBtn;
+        if (backRoute) {
+            action.next({ name: ACTIONS.BACK_BUTTON, data: backRoute});
+        } else {
+            action.next({ name: ACTIONS.TOGGLE_NAV_MENU });
         }
     }
 }

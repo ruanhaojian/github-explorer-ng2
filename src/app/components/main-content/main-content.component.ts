@@ -30,10 +30,7 @@ export class MainContentComponent implements OnInit, OnDestroy, AfterViewInit{
         this.router.events
             .filter(event => event instanceof NavigationEnd)
             .subscribe((val) => {
-                // see also
-                console.log('router.events subscribe');
-                console.dir(this.route);
-                // console.dir(val);
+                
                 if (!this.isUserPage(this.route.firstChild.routeConfig.path)) {
                     this.isShowFooter = false;
                 } else {
