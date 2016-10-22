@@ -17,6 +17,8 @@ import { RepoItemComponent } from './components/repo-item/repo-item.component';
 import { RepoContentComponent } from './components/repo-content/repo-content.component';
 import { RepoListComponent } from './components/repo-list/repo-list.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
+import { MenuFullComponent } from './components/menu-full-state-handler/menu-full.component';
+import { MenuOpenComponent } from './components/menu-open-state-handler/menu-open.component';
 // pipe
 import { FromNowPipe } from './pipe/from-now.pipe'
 // routing
@@ -42,6 +44,8 @@ import { ActionService } from './action/action.service'
     RepoContentComponent,
     RepoListComponent,
     SearchInputComponent,
+    MenuFullComponent,
+    MenuOpenComponent,
       
     FromNowPipe
   ],
