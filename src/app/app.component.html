@@ -1,5 +1,9 @@
 <div id="app">
-    <menu-open-state-handler></menu-open-state-handler>
-    <menu-full-state-handler></menu-full-state-handler>
-    <main-content></main-content>
+    <menu-open-state-handler remove-host></menu-open-state-handler>
+    <menu-full-state-handler remove-host></menu-full-state-handler>
+    <div id="menu-overlay"
+         (click)="closeNavMenu()"
+    ></div>
+    <nav-menu remove-host></nav-menu>
+    <main-content remove-host></main-content>
 </div>

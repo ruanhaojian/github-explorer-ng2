@@ -19,13 +19,15 @@ import { RepoListComponent } from './components/repo-list/repo-list.component';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { MenuFullComponent } from './components/menu-full-state-handler/menu-full.component';
 import { MenuOpenComponent } from './components/menu-open-state-handler/menu-open.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 // pipe
 import { FromNowPipe } from './pipe/from-now.pipe'
 // routing
 import { routing } from './app.routing';
 // service
 import { ActionService } from './action/action.service'
-
+// direactive
+import { RemoveHost } from './direactive/remove-host.direactive'
 
 
 @NgModule({
@@ -46,6 +48,9 @@ import { ActionService } from './action/action.service'
     SearchInputComponent,
     MenuFullComponent,
     MenuOpenComponent,
+    NavMenuComponent,
+
+    RemoveHost,
       
     FromNowPipe
   ],

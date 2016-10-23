@@ -169,6 +169,7 @@ export class HeaderBarComponent implements OnInit, OnDestroy, OnChanges, AfterVi
 
     hamburgerIconClick() {
         const backRoute = this.isShowBackBtn;
+        
         if (backRoute) {
             action.next({ name: ACTIONS.BACK_BUTTON, data: backRoute});
         } else {

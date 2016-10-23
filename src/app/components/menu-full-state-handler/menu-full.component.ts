@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs'
 
 @Component({
     selector: 'menu-full-state-handler',
-    templateUrl: './menu-full-state-handler.component.html',
-    // styleUrls: ['./menu-full-state-handler.component.scss'],
+    templateUrl: './menu-full.component.html',
+    // styleUrls: ['./menu-full.component.scss'],
 })
 export class MenuFullComponent implements AfterViewInit, OnDestroy{
     full: boolean;

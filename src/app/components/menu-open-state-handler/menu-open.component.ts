@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs'
 
 @Component({
     selector: 'menu-open-state-handler',
-    templateUrl: './menu-open-state-handler.component.html',
-    // styleUrls: ['./menu-open-state-handler.component.scss'],
+    templateUrl: './menu-open.component.html',
+    // styleUrls: ['./menu-open.component.scss'],
 })
 export class MenuOpenComponent implements AfterViewInit, OnDestroy{
     open: boolean;
@@ -15,7 +15,6 @@ export class MenuOpenComponent implements AfterViewInit, OnDestroy{
     obsCloseNavMenu: Subscription;
 
     constructor(){
-        super();
         this.open = false;
     }
 

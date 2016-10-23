@@ -11,7 +11,7 @@ import {
     animate
 } from '@angular/core';
 import { ActionService, action } from '../../action/action.service'
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 import { ACTIONS } from '../../action/action.types'
 
 import { Observable, Subscription } from 'rxjs'
@@ -44,13 +44,28 @@ export class UserPageComponent implements OnInit, AfterViewInit, OnChanges{
 
     constructor(
         private actionService: ActionService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ){
         this.profile = {};
     }
 
     ngOnInit(): void{
 
+
+        // subscribe the router change
+        this.router.events
+            .filter(event => event instanceof NavigationEnd)
+            .subscribe((val) => {
+                
+                if(this.route){
+                    let username = this.route.snapshot.params['username'];
+                    if(username != this.profile.login){
+                        this.loadUser(username);
+                    }
+                }
+
+            });
 
     }
 

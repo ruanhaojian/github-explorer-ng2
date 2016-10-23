@@ -21,10 +21,10 @@ export class SearchInputComponent {
 
         this.onTextChange.emit(e);
         
-        this.timer && clearTimeout(this.timer);
-        this.timer = setTimeout(() => {
-            this.onSearch.emit();
-        }, 800);
+        // this.timer && clearTimeout(this.timer);
+        // this.timer = setTimeout(() => {
+        //     this.onSearch.emit();
+        // }, 800);
         
     } 
    

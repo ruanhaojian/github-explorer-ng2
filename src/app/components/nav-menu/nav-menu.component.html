@@ -1,0 +1,36 @@
+<div id="nav-menu">
+    <div id="search-bar" #searchbar>
+        <search-input
+                [placeholder]="'Search by username...'"
+                (onTextChange)="searchTextChange($event)"
+                (onSearch)="searchUsers()"
+                (onFocus)="fullNavMenu()"
+        ></search-input>
+        <div id="cancel-button"
+             (click)="openNavMenu()"
+        >Cancel</div>
+    </div>
+    <div id="user-list"
+         (scroll)="highlightSearchbar($event, searchbar)"
+         #userlist
+    >
+        <div id="loading" *ngIf="isSearching">
+            <div class="loading"></div>
+        </div>
+        <div class="user-item animated"
+             *ngFor="let user of users"
+             (click)="userClick(user.login)"
+             [@fadeInOut]="'in'"
+        >
+            <avatar
+
+                    class="user-avatar"
+                    [src]="'https://avatars.githubusercontent.com/u/' + user.id.split('-')[1]"
+            ></avatar>
+            <div class="user-info">
+                <div class="fullname">{{user.fullname || user.login}}</div>
+                <div class="username">{{user.login || user.fullname}}</div>
+            </div>
+        </div>
+    </div>
+</div>

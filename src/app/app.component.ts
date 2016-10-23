@@ -40,4 +40,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
 
+    closeNavMenu() : void{
+        action.next({ name: ACTIONS.CLOSE_NAV_MENU });
+    }
+
 }

@@ -115,7 +115,10 @@ export class ActionService {
             .then((res : Response) => res.json())
             .then(data => data.users.slice(0, 15))
             .then(users => {
-                console.dir(users)
+                action.next({
+                    name: ACTIONS.USERS_RECEIVED,
+                    data: users,
+                });
             })
             .catch(this.handleError);
     }
