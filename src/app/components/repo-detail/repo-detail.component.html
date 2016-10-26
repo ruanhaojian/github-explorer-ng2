@@ -1,0 +1,89 @@
+<div id="repo-detail"
+     class="transition-item animated"
+     [ngStyle]="{'transform': transStyle}"
+>
+    <repo-content [repo]="repo"></repo-content>
+    <div class="tab-wrapper-transition-group">
+        <div id="repo-tabs-wrapper" #tabwrapper >
+            <div id="repo-tabs" >
+
+                <div *ngFor="let tab of TABS"
+                     (click)="switchTab(tab)"
+                     class="repo-tab-item"
+                     [ngClass]="{'selected' : (activeTab === tab.key)}"
+                >
+                    {{ tab.value }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offline-msg" *ngIf="loadFailed">
+        You are offline!
+        <div (click)="getProfile()" class="blue-link">Try again</div>
+    </div>
+    <div #tabcontent id="repo-tab-content">
+        <div id="readme"
+             class="repo-content-item markdown-body"
+             [ngClass]="{ 'show': (activeTab === 'readme') }"
+        >
+            <!--<markdown>-->
+                <!--{{readme}}-->
+            <!--</markdown>-->
+            <div class="empty-data" *ngIf="!!!readme">No data</div>
+        </div>
+        <div id="files"
+             class="repo-content-item"
+             [ngClass]="{ 'show': (activeTab === 'files') }"
+        >
+            <div *ngFor="let content of contents">
+                <div class="file-item">
+                    <div class="file-icon">
+                        <i class="fa fa-file-text-o" *ngIf="content.type === 'file'"></i>
+                        <i class="fa fa-folder" *ngIf="content.type != 'file'"></i>
+                    </div>
+                    <div class="file-info">
+                        <div class="file-name">{{ content.name }}</div>
+                        <div class="file-date">
+                            {{ content.size | transToSize }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-data" *ngIf="!contents.length">No data</div>
+        </div>
+        <div id="contributors"
+             class="repo-content-item"
+             [ngClass]="{ 'show': (activeTab === 'contributors') }"
+        >
+            <div class="contrib-item"
+                 *ngFor="let contrib of contribs"
+            >
+                <div class="contrib-avatar"
+                     [ngStyle]="{'backgroundImage': 'url(' + contrib.avatar_url + ')'}"
+                ></div>
+                <div class="contrib-info">
+                    <div class="contrib-name">{{contrib.login}}</div>
+                    <div class="contrib-value">{{contrib.contributions}} {{' '}}
+                        contribution{{contrib.contributions === 1 ? '' : 's'}}
+                    </div>
+                </div>
+            </div>
+            <div class="empty-data" *ngIf="!contribs.length">No data</div>
+        </div>
+        <div id="languages"
+             class="repo-content-item"
+             [ngClass]="{ 'show': (activeTab === 'languages') }"
+        >
+            <div class="lang-item" *ngFor="let language of languages">
+                <div class="lang-color"
+                     [ngStyle]="{ backgroundColor: getColor(language.name) }"
+                ></div>
+                <div class="lang-info">
+                    <div class="lang-name">{{language.name}}</div>
+                    <div class="lang-value">{{language.value}}%</div>
+                </div>
+            </div>
+            <div class="empty-data" *ngIf="!languages.length">No data</div>
+        </div>
+    </div>
+</div>

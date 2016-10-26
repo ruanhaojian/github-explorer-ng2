@@ -123,9 +123,70 @@ export class ActionService {
             .catch(this.handleError);
     }
 
+    getRepoDetail(username, repoName){
+        return this.http.get(`${this.baseUrl}/repos/${username}/${repoName}`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(repo => {
+                action.next({
+                    name: ACTIONS.REPO_DETAIL_RECEIVED,
+                    data: repo,
+                });
+            })
+            .catch(this.handleError);
+    }
 
+    getRepoReadme(username, repoName){
+        return this.http.get(`${this.baseUrl}/repos/${username}/${repoName}/readme`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(readme => {
+                action.next({
+                    name: ACTIONS.REPO_README_RECEIVED,
+                    data: readme,
+                });
+            })
+            .catch(this.handleError);
+    }
 
+    getRepoContents(username, repoName){
+        return this.http.get(`${this.baseUrl}/repos/${username}/${repoName}/contents`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(contents => {
+                action.next({
+                    name: ACTIONS.REPO_CONTENTS_RECEIVED,
+                    data: contents,
+                });
+            })
+            .catch(this.handleError);
+    }
 
+    getRepoContribs(username, repoName){
+        return this.http.get(`${this.baseUrl}/repos/${username}/${repoName}/contributors`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(contris => {
+                action.next({
+                    name: ACTIONS.REPO_CONTRIS_RECEIVED,
+                    data: contris,
+                });
+            })
+            .catch(this.handleError);
+    }
+
+    getRepoLanguages(username, repoName){
+        return this.http.get(`${this.baseUrl}/repos/${username}/${repoName}/languages`, {headers: this.headers})
+            .toPromise()
+            .then((res : Response) => res.json())
+            .then(languages => {
+                action.next({
+                    name: ACTIONS.REPO_LANGUAGES_RECEIVED,
+                    data: languages,
+                });
+            })
+            .catch(this.handleError);
+    }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

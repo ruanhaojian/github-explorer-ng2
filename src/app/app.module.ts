@@ -20,14 +20,17 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { MenuFullComponent } from './components/menu-full-state-handler/menu-full.component';
 import { MenuOpenComponent } from './components/menu-open-state-handler/menu-open.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { RepoDetailComponent } from './components/repo-detail/repo-detail.component';
 // pipe
 import { FromNowPipe } from './pipe/from-now.pipe'
+import { TranToSizePipe } from './pipe/tran-to-size.pipe'
 // routing
 import { routing } from './app.routing';
 // service
 import { ActionService } from './action/action.service'
 // direactive
 import { RemoveHost } from './direactive/remove-host.direactive'
+// import { MarkdownModule } from 'angular2-markdown'
 
 
 @NgModule({
@@ -49,16 +52,19 @@ import { RemoveHost } from './direactive/remove-host.direactive'
     MenuFullComponent,
     MenuOpenComponent,
     NavMenuComponent,
+    RepoDetailComponent,
 
     RemoveHost,
       
-    FromNowPipe
+    FromNowPipe,
+    TranToSizePipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    // MarkdownModule
   ],
   providers: [
     ActionService
