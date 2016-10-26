@@ -2,13 +2,13 @@ import { Component, AfterViewInit,ElementRef, OnDestroy } from '@angular/core';
 import { ActionService, action } from '../../action/action.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ACTIONS } from '../../action/action.types';
-import { Base64 } from 'js-base64';
+import { Base64 } from 'js-base64'
 import { Observable, Subscription } from 'rxjs'
 import 'rxjs/add/observable/fromEvent'
 
 import languageColor from '../../utils/language-colors';
 
-import * as marked from 'marked'
+var marked = require('marked')
 
 
 @Component({
@@ -53,6 +53,12 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
         private elementRef: ElementRef
     ){
         this.repo = [];
+        this.contents = [];
+        this.contribs = [];
+        this.languages = [];
+        this.readme = '';
+
+
         this.activeTab = '';
         this.transStyle = false;
         this.offsetTop = 0;

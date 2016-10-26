@@ -23,7 +23,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { RepoDetailComponent } from './components/repo-detail/repo-detail.component';
 // pipe
 import { FromNowPipe } from './pipe/from-now.pipe'
-import { TranToSizePipe } from './pipe/tran-to-size.pipe'
+import { TransToSizePipe } from './pipe/tran-to-size.pipe'
 // routing
 import { routing } from './app.routing';
 // service
@@ -57,7 +57,7 @@ import { RemoveHost } from './direactive/remove-host.direactive'
     RemoveHost,
       
     FromNowPipe,
-    TranToSizePipe
+    TransToSizePipe
   ],
   imports: [
     BrowserModule,

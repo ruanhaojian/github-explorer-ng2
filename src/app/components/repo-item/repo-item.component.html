@@ -1,4 +1,4 @@
-<a [routerLink]="['/user', { username: 'repo.owner.login' }]"
+<a [routerLink]="['/user', repo.owner.login, 'repos', repo.name]"
    class="repo-item"
 >
     <repo-content [repo]="repo"></repo-content>

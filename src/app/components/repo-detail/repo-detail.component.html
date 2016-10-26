@@ -26,6 +26,7 @@
              class="repo-content-item markdown-body"
              [ngClass]="{ 'show': (activeTab === 'readme') }"
         >
+            {{marked(readme)}}
             <!--<markdown>-->
                 <!--{{readme}}-->
             <!--</markdown>-->
