@@ -22,6 +22,8 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
     offsetTop: number;
     loadFailed: boolean;
 
+    markedHtml: string;
+
     startPosition: any;
     TABS: Array<any>;
     scrollDom: any;
@@ -58,6 +60,7 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
         this.languages = [];
         this.readme = '';
 
+        this.markedHtml = '';
 
         this.activeTab = '';
         this.transStyle = false;
@@ -158,8 +161,13 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
             this.contribs = contribs;
             this.contents = contents;
             this.languages = languages;
+            
+            this.markedHtml = marked(readme);
 
-            this.refreshContentHeight(this.TABS[0]);
+            setTimeout(()=>{
+                this.refreshContentHeight(this.TABS[0]);
+
+            });
 
         });
 
@@ -217,10 +225,7 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
     getColor(language) {
         return languageColor(language);
     }
-
-    marked(md){
-        return marked(md);
-    }
+    
     
     ngOnDestroy() : void{
         this.obsLoadDone.unsubscribe();
