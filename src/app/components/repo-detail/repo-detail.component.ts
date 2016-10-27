@@ -60,6 +60,7 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
         this.languages = [];
         this.readme = '';
 
+        this.wait = false;
         this.markedHtml = '';
 
         this.activeTab = '';
@@ -176,8 +177,9 @@ export class RepoDetailComponent implements AfterViewInit, OnDestroy{
         this.obsTabWrapper = Observable
             .fromEvent(this.scrollDom, 'scroll')
             .subscribe(() => {
-                this.lastOffsetTop = this.tabWrapper.parentElement.getBoundingClientRect().top;
+                this.lastOffsetTop = this.tabWrapper.parentElement.getBoundingClientRect().top
                 if (this.wait === false) {
+
                     window.requestAnimationFrame(() => {
                         if (this.lastOffsetTop < 60) {
                             this.tabWrapper.classList.add('fixed');
